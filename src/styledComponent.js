@@ -6,26 +6,24 @@ flex-direction: column;
 justify-content: flex-start;
 align-items: center;
 height: 100vh;
+background-size: cover;
 `
 export const SearchBarContainer = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
 align-items: center;
-padding-top: 5%;
+padding-top: 2%;
 margin-top: 0px;
 height: 8%;
-position:fixed;
-z-index: 1;
-width: 100%;
-background-color: #ffffff;
+
 `
 export const SearchList = styled.ul`
 display: flex;
 flex-direction: column;
 align-items: center;
 padding-top: 5%;
-margin-top: 5%;
+margin-top: 15%;
 padding-left: 0px;
 `
 
@@ -39,6 +37,7 @@ border-right: none;
 outline: none;
 padding-left: 10px;
 font-size: 18px;
+background-color: #ffffff;
 box-shadow: -3px 3px 7px 3px #e2e8f0;
 `
 
@@ -81,4 +80,28 @@ export const RetryButton = styled.button`
   cursor: pointer;
   border-radius: 5px;
   background-color: #4f46e5;
+`
+export const SearchLogo = styled.img`
+height: 170px;
+width: 250px;
+margin: 0px;
+padding: 0px;
+background-color: transparent;
+`
+export const Slogan = styled.p`
+font-size: 13px;
+padding: 0px;
+margin: 0px;
+font-weight: 600;
+background-color: transparent;
+`
+export const SubContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  position:fixed;
+  z-index: 1;
+  width: 100%;
+  background-color: #ffffff;
 `

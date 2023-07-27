@@ -8,6 +8,7 @@ export const ListItem = styled.li`
     padding: 15px;
     width:80%;
     border-radius: 8px;
+    background-color: #ffffff;
 `
 export const Title = styled.h1`
     font-size: 18px;

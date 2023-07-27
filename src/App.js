@@ -12,7 +12,10 @@ import {MainContainer,
         FailureViewContainer, 
         FailureImage, 
         FailureTitle, 
-        FailureDescription, 
+        FailureDescription,
+        SearchLogo, 
+        Slogan,
+        SubContainer,
         RetryButton} from './styledComponent'
 
 const apiStatusConstant = {
@@ -36,11 +39,18 @@ class App extends Component {
         if(response.ok){
             this.setState({apiStatus: apiStatusConstant.success})
             const formatedData = await response.json();
-            const slicedData = formatedData.items.slice(0,5);
-            const updatedData = slicedData.map(eachItem => (
+            if(formatedData.items === undefined){
+              this.setState({apiStatus: apiStatusConstant.failure})
+            }else{
+              const slicedData = formatedData.items.slice(0,5);
+              const updatedData = slicedData.map(eachItem => (
               {...eachItem, id: uuidv4()}
-            ))
-            this.setState({searchResult: updatedData}) 
+              ))
+              this.setState({searchResult: updatedData}) 
+            }
+            
+            
+            
         }else{
           this.setState({apiStatus: apiStatusConstant.failure})
         }
@@ -102,11 +112,17 @@ class App extends Component {
     const {searchInput} = this.state
     return (
       <MainContainer>
-        <SearchBarContainer>
-        <SearchBar value={searchInput} type='search' placeholder="Search" 
-        onChange={this.onChangeSearch} onKeyDown={this.onChangeSearch}/>
-        <TbWorldSearch onClick={this.onSearch} className='search-icon'/>
-        </SearchBarContainer>
+         <SubContainer>
+            <SearchLogo src='https://img.freepik.com/premium-vector/world-map-earth-international-globe-grey-template-circle-earth-country-travel-worldwide-concept_352905-469.jpg?w=1800'/>
+            <Slogan>Unlock the World's Answers: Search Smarter, Go Farther!</Slogan>
+          
+          <SearchBarContainer>
+            <SearchBar value={searchInput} type='search' placeholder="Search" 
+            onChange={this.onChangeSearch} onKeyDown={this.onChangeSearch}/>
+            <TbWorldSearch onClick={this.onSearch} className='search-icon'/>
+          </SearchBarContainer>
+        </SubContainer>
+        
           <SearchList>
             {this.renderPages()}
           </SearchList>
